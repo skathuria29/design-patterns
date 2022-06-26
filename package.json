@@ -5,7 +5,8 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "@adobe/react-spectrum": "3.19.0",
+    "@adobe/react-spectrum": "3.18.0",
+    "@react-spectrum/tabs": "3.2.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-scripts": "4.0.0"
