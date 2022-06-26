@@ -1,0 +1,26 @@
+.Expandable-trigger {
+  background: none;
+  color: hsl(0, 0%, 13%);
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  padding: 1em 1.5em;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Expandable-trigger:focus,
+.Expandable-trigger:hover {
+  background: hsl(216, 94%, 94%);
+}
+
+.Expandable-icon {
+  position: absolute;
+  top: 16px;
+  right: 10px;
+}
