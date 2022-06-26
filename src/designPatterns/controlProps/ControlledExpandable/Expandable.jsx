@@ -6,12 +6,12 @@ import React, {
   useMemo
 } from "react";
 
-import "./expandable.css";
-import { Header } from "./Header";
-import { Icon } from "./Icon";
-import { Body } from "./Body";
+import "../../compoundComponents/expandable.css";
+import { Header } from "../../compoundComponents/Header";
+import { Icon } from "../../compoundComponents/Icon";
+import { Body } from "../../compoundComponents/Body";
 
-import ExpandableContext from "./ExpandableProvider";
+import ExpandableContext from "../../compoundComponents/ExpandableProvider";
 
 const DEFAULT_FN = () => {};
 
@@ -19,27 +19,33 @@ export const Expandable = ({
   children,
   className = "",
   onExpanded = DEFAULT_FN,
+  shouldExpand,
   ...restProps
 }) => {
+  const isExpandControlled = shouldExpand !== undefined;
+
   const [expanded, setExpanded] = useState(false);
   const componentJustMounted = useRef(true);
+  const getState = isExpandControlled ? shouldExpand : expanded;
 
   const toggle = useCallback(
     () => setExpanded((prevExpanded) => !prevExpanded),
     []
   );
 
+  const getToggle = isExpandControlled ? onExpanded : toggle;
+
   useEffect(() => {
-    if (!componentJustMounted) {
+    if (!componentJustMounted && !isExpandControlled) {
       onExpanded(expanded);
       componentJustMounted.current = false;
     }
   }, [expanded]);
 
-  const contextValue = useMemo(() => ({ expanded, toggle }), [
-    expanded,
-    toggle
-  ]);
+  const contextValue = useMemo(
+    () => ({ expanded: getState, toggle: getToggle }),
+    [getState, getToggle]
+  );
 
   const combinedClassNames = ["Expandable", className].join(" ");
 

@@ -1,11 +1,23 @@
-import { Expandable } from "../compoundComponents/Expandable";
+import { useState } from "react";
+import { Expandable } from "./ControlledExpandable/Expandable";
 import { information } from "./data";
 export const ControlPropsPattern = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const onExpand = (evt) => setActiveIndex(evt.target.dataset.index);
+
   return (
     <div className="control-props">
       {information.map(({ header, note }, index) => (
-        <Expandable key={index}>
-          <Expandable.Header style={{ color: "red", border: "1px solid teal" }}>
+        <Expandable
+          key={index}
+          shouldExpand={index === +activeIndex}
+          className="pos-relative"
+          onExpanded={onExpand}
+        >
+          <Expandable.Header
+            style={{ color: "red", border: "1px solid teal" }}
+            data-index={index}
+          >
             {header}
           </Expandable.Header>
           <Expandable.Icon />
