@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Expandable } from "./ControlledExpandable/Expandable";
+import { Expandable } from "./Expandable";
 import { information } from "./data";
 export const ControlPropsPattern = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -7,6 +7,7 @@ export const ControlPropsPattern = () => {
 
   return (
     <div className="control-props">
+      <b> Control Props Pattern Example</b>
       {information.map(({ header, note }, index) => (
         <Expandable
           key={index}

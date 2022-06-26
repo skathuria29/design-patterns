@@ -10,6 +10,7 @@ import {
   Provider
 } from "@adobe/react-spectrum";
 import { ControlPropsPattern } from "./designPatterns/controlProps/ControlPropsPattern";
+import { PropCollection } from "./designPatterns/propCollection/PropCollection";
 
 export default function App() {
   return (
@@ -17,19 +18,23 @@ export default function App() {
       <div className="App h-500 w-500">
         <Tabs aria-label="History of Ancient Rome">
           <TabList>
-            <Item key="FoR">Intro</Item>
-            <Item key="MaR">Compound Pattern</Item>
-            <Item key="Emp">Control Props</Item>
+            <Item key="0">Intro</Item>
+            <Item key="1">Compound Pattern</Item>
+            <Item key="2">Control Props</Item>
+            <Item key="3">Prop Collection</Item>
           </TabList>
           <TabPanels>
-            <Item key="FoR">
+            <Item key="0">
               <Intro />
             </Item>
-            <Item key="MaR" styles={{ position: "relative", width: "100%" }}>
+            <Item key="1" styles={{ position: "relative", width: "100%" }}>
               <CompoundComponents />
             </Item>
-            <Item key="Emp">
+            <Item key="2">
               <ControlPropsPattern />
+            </Item>
+            <Item key="3">
+              <PropCollection />
             </Item>
           </TabPanels>
         </Tabs>

@@ -6,12 +6,12 @@ import React, {
   useMemo
 } from "react";
 
-import "../../compoundComponents/expandable.css";
-import { Header } from "../../compoundComponents/Header";
-import { Icon } from "../../compoundComponents/Icon";
-import { Body } from "../../compoundComponents/Body";
+import "../compoundComponents/expandable.css";
+import { Header } from "../compoundComponents/Header";
+import { Icon } from "../compoundComponents/Icon";
+import { Body } from "../compoundComponents/Body";
 
-import ExpandableContext from "../../compoundComponents/ExpandableProvider";
+import ExpandableContext from "../compoundComponents/ExpandableProvider";
 
 const DEFAULT_FN = () => {};
 
